@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — DEVMERCH.SHOP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>DEVMERCH<span class="brand-dim">.SHOP</span></a>
+  <nav class="nav-links">
+    <a href="tshirts.html">tshirts</a>
+    <a href="hoodies.html">hoodies</a>
+    <a href="mugs.html">mugs</a>
+  </nav>
+  <div class="nav-icons">
+    <a href="login.html" class="icon-btn" title="Account">&#128100;</a>
+    <a href="cart.html" class="icon-btn cart-btn" title="Cart">&#128722;<span class="cart-count">3</span></a>
+  </div>
+</header>
+<div class="wrap cat-head">
+  <p class="breadcrumb"><a href="index.html">root</a><span class="sep">/</span>cart</p>
+  <h1 class="cat-title"><span class="hash">#</span> Your Cart</h1>
+  <p class="cat-desc">// 3 items in buffer</p>
+</div>
+<div class="wrap cart-layout">
+  <div class="cart-list">
+    <input type="checkbox" id="rm-0" class="rm-toggle">
+    <div class="cart-row">
+      <div class="cart-thumb"><img class="cart-img" src="images/tshirt.webp" alt="Syntax Tee"></div>
+      <div class="cart-info"><h4>Syntax Tee</h4><small>tshirts · size M · black</small></div>
+      <div class="cart-qty">x1</div>
+      <div style="text-align:right">
+        <div class="cart-price">&#8377;999</div>
+        <label for="rm-0" class="cart-remove">remove</label>
+      </div>
+    </div>
+    <input type="checkbox" id="rm-1" class="rm-toggle">
+    <div class="cart-row">
+      <div class="cart-thumb"><img class="cart-img" src="images/hoodie.webp" alt="Dark Mode Hoodie"></div>
+      <div class="cart-info"><h4>Dark Mode Hoodie</h4><small>hoodies · size M · black</small></div>
+      <div class="cart-qty">x1</div>
+      <div style="text-align:right">
+        <div class="cart-price">&#8377;2,499</div>
+        <label for="rm-1" class="cart-remove">remove</label>
+      </div>
+    </div>
+    <input type="checkbox" id="rm-2" class="rm-toggle">
+    <div class="cart-row">
+      <div class="cart-thumb"><img class="cart-img" src="images/mug.webp" alt="Null Pointer Mug"></div>
+      <div class="cart-info"><h4>Null Pointer Mug</h4><small>mugs · size M · black</small></div>
+      <div class="cart-qty">x2</div>
+      <div style="text-align:right">
+        <div class="cart-price">&#8377;998</div>
+        <label for="rm-2" class="cart-remove">remove</label>
+      </div>
+    </div>
+  </div>
+  <aside class="cart-summary">
+    <h3>Order Summary</h3>
+    <div class="sum-line"><span>Subtotal</span><span>&#8377;4,496</span></div>
+    <div class="sum-line"><span>Shipping</span><span>FREE</span></div>
+    <div class="sum-line"><span>COD</span><span>available</span></div>
+    <div class="sum-total"><span>Total</span><span>&#8377;4,496</span></div>
+    <a class="btn btn-primary btn-block btn-lg" href="checkout.html" style="margin-top:1rem">Proceed to checkout</a>
+    <a class="btn btn-ghost btn-block" href="index.html" style="margin-top:.6rem">Continue shopping</a>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div>&lt;/&gt; DEVMERCH.SHOP — merch for people who ship code.</div>
+  <nav class="foot-links">
+    <a href="tshirts.html">tshirts</a>
+    <a href="hoodies.html">hoodies</a>
+    <a href="mugs.html">mugs</a>
+    <a href="cart.html">cart</a>
+    <a href="login.html">admin</a>
+  </nav>
+  <div class="foot-dim">// built with HTML &amp; CSS only · no javascript · © 2026</div>
+</footer>
+</body>
+</html>

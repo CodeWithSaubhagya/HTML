@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — DEVMERCH.SHOP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<input type="checkbox" id="do-login" class="view-toggle">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>DEVMERCH<span class="brand-dim">.SHOP</span></a>
+  <nav class="nav-links">
+    <a href="tshirts.html">tshirts</a>
+    <a href="hoodies.html">hoodies</a>
+    <a href="mugs.html">mugs</a>
+  </nav>
+  <div class="nav-icons">
+    <a href="login.html" class="icon-btn" title="Account">&#128100;</a>
+    <a href="cart.html" class="icon-btn cart-btn" title="Cart">&#128722;<span class="cart-count">3</span></a>
+  </div>
+</header>
+<!--
+  Pure-CSS admin gate. Password field uses pattern="Alpha2champ";
+  CSS reads :valid/:invalid via :has() to route after Login is clicked.
+  Correct password -> admin dashboard. Wrong -> back to the store.
+  (No server, so the password lives in the HTML — demo only, not secure.)
+-->
+
+<!-- LOGIN FORM -->
+<section class="gate gate-login">
+  <div class="login-shell">
+    <div class="login-card">
+      <div class="terminal-bar">
+        <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+        <span class="label">auth — login.sh</span>
+      </div>
+      <div style="padding:1.6rem">
+        <p class="cmd">$ sudo ./login.sh</p>
+        <label class="field">
+          <span class="field-label">username</span>
+          <input type="text" placeholder="root" autocomplete="off">
+        </label>
+        <label class="field">
+          <span class="field-label">password</span>
+          <input type="password" id="pw" pattern="Alpha2champ" required placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" autocomplete="off">
+        </label>
+        <label for="do-login" class="btn btn-primary btn-block btn-lg" style="margin-top:1rem">Login</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WRONG PASSWORD -> customer -->
+<section class="gate gate-denied">
+  <div class="login-shell">
+    <div class="login-card" style="text-align:center;padding:2rem">
+      <p class="cmd">$ auth: 401 unauthorized</p>
+      <h2 style="margin:.6rem 0 .4rem">You're browsing as a customer</h2>
+      <p style="color:var(--muted);margin-bottom:1.4rem">Wrong admin password — no problem. Head to the store.</p>
+      <a class="btn btn-primary btn-lg" href="index.html">Enter the store &rarr;</a>
+      <label for="do-login" class="btn btn-ghost btn-lg" style="margin-left:.5rem">Try again</label>
+    </div>
+  </div>
+</section>
+
+<!-- CORRECT PASSWORD -> admin dashboard -->
+<section class="gate gate-admin">
+  <div class="wrap cat-head">
+    <p class="breadcrumb"><a href="index.html">root</a><span class="sep">/</span>admin</p>
+    <h1 class="cat-title"><span class="hash">#</span> Admin Dashboard</h1>
+    <p class="cat-desc">// signed in as root@devmerch</p>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>9</b><span>Products</span></div>
+      <div class="stat"><b>128</b><span>Orders</span></div>
+      <div class="stat"><b>&#8377;3.2L</b><span>Revenue</span></div>
+      <div class="stat"><b>642</b><span>Customers</span></div>
+    </div>
+
+    <h2 style="font-family:var(--mono);font-size:1rem;margin:.5rem 0 1rem">Orders</h2>
+    <div class="orders">
+    <div class="order-card">
+      <div class="order-head">
+        <div><span class="order-id">#ORD-1042</span><span class="order-date">2026-07-03</span></div>
+        <span class="order-total">&#8377;1,998</span>
+      </div>
+      <div class="order-body">
+        <div class="order-thumb"><img class="order-img" src="images/tshirt.webp" alt="Syntax Tee"></div>
+        <div class="order-outfit">
+          <h4>Syntax Tee</h4>
+          <p class="order-attrs">tshirts · size M · Black · qty 2 · &#8377;999 each</p>
+          <p class="order-cust">&#128100; Aarav Sharma — Mumbai</p>
+        </div>
+      </div>
+      <div class="order-status">
+        <p class="opt-title">Order status</p>
+        <div class="status-picker"><input type="radio" name="ord-1042" id="o1042-pending" class="st-pending" checked><label for="o1042-pending" class="status-pill">pending</label><input type="radio" name="ord-1042" id="o1042-confirmed" class="st-confirmed"><label for="o1042-confirmed" class="status-pill">confirmed</label><input type="radio" name="ord-1042" id="o1042-shipped" class="st-shipped"><label for="o1042-shipped" class="status-pill">shipped</label><input type="radio" name="ord-1042" id="o1042-delivered" class="st-delivered"><label for="o1042-delivered" class="status-pill">delivered</label></div>
+      </div>
+      <input type="checkbox" id="od-1042" class="od-toggle">
+      <label for="od-1042" class="od-more">full outfit details</label>
+      <div class="order-details">
+        <div class="od-grid">
+          <div><span class="k">customer</span><br><span class="v">Aarav Sharma</span></div>
+          <div><span class="k">email</span><br><span class="v">aarav.s@mail.dev</span></div>
+          <div><span class="k">phone</span><br><span class="v">+91 98200 11234</span></div>
+          <div><span class="k">payment</span><br><span class="v">UPI</span></div>
+          <div style="grid-column:1/-1"><span class="k">shipping address</span><br><span class="v">14 Marine Drive, Mumbai 400020</span></div>
+          <div style="grid-column:1/-1"><span class="k">items</span><br><span class="v">2 × Syntax Tee — M / Black = &#8377;1,998</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="order-card">
+      <div class="order-head">
+        <div><span class="order-id">#ORD-1041</span><span class="order-date">2026-07-03</span></div>
+        <span class="order-total">&#8377;2,499</span>
+      </div>
+      <div class="order-body">
+        <div class="order-thumb"><img class="order-img" src="images/hoodie.webp" alt="Dark Mode Hoodie"></div>
+        <div class="order-outfit">
+          <h4>Dark Mode Hoodie</h4>
+          <p class="order-attrs">hoodies · size L · Charcoal · qty 1 · &#8377;2,499 each</p>
+          <p class="order-cust">&#128100; Diya Patel — Bengaluru</p>
+        </div>
+      </div>
+      <div class="order-status">
+        <p class="opt-title">Order status</p>
+        <div class="status-picker"><input type="radio" name="ord-1041" id="o1041-pending" class="st-pending"><label for="o1041-pending" class="status-pill">pending</label><input type="radio" name="ord-1041" id="o1041-confirmed" class="st-confirmed" checked><label for="o1041-confirmed" class="status-pill">confirmed</label><input type="radio" name="ord-1041" id="o1041-shipped" class="st-shipped"><label for="o1041-shipped" class="status-pill">shipped</label><input type="radio" name="ord-1041" id="o1041-delivered" class="st-delivered"><label for="o1041-delivered" class="status-pill">delivered</label></div>
+      </div>
+      <input type="checkbox" id="od-1041" class="od-toggle">
+      <label for="od-1041" class="od-more">full outfit details</label>
+      <div class="order-details">
+        <div class="od-grid">
+          <div><span class="k">customer</span><br><span class="v">Diya Patel</span></div>
+          <div><span class="k">email</span><br><span class="v">diya.p@mail.dev</span></div>
+          <div><span class="k">phone</span><br><span class="v">+91 99010 55678</span></div>
+          <div><span class="k">payment</span><br><span class="v">Card</span></div>
+          <div style="grid-column:1/-1"><span class="k">shipping address</span><br><span class="v">22 Indiranagar, Bengaluru 560038</span></div>
+          <div style="grid-column:1/-1"><span class="k">items</span><br><span class="v">1 × Dark Mode Hoodie — L / Charcoal = &#8377;2,499</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="order-card">
+      <div class="order-head">
+        <div><span class="order-id">#ORD-1040</span><span class="order-date">2026-07-02</span></div>
+        <span class="order-total">&#8377;1,497</span>
+      </div>
+      <div class="order-body">
+        <div class="order-thumb"><img class="order-img" src="images/mug.webp" alt="Null Pointer Mug"></div>
+        <div class="order-outfit">
+          <h4>Null Pointer Mug</h4>
+          <p class="order-attrs">mugs · size 15oz · Black · qty 3 · &#8377;499 each</p>
+          <p class="order-cust">&#128100; Kabir Singh — Delhi</p>
+        </div>
+      </div>
+      <div class="order-status">
+        <p class="opt-title">Order status</p>
+        <div class="status-picker"><input type="radio" name="ord-1040" id="o1040-pending" class="st-pending"><label for="o1040-pending" class="status-pill">pending</label><input type="radio" name="ord-1040" id="o1040-confirmed" class="st-confirmed"><label for="o1040-confirmed" class="status-pill">confirmed</label><input type="radio" name="ord-1040" id="o1040-shipped" class="st-shipped" checked><label for="o1040-shipped" class="status-pill">shipped</label><input type="radio" name="ord-1040" id="o1040-delivered" class="st-delivered"><label for="o1040-delivered" class="status-pill">delivered</label></div>
+      </div>
+      <input type="checkbox" id="od-1040" class="od-toggle">
+      <label for="od-1040" class="od-more">full outfit details</label>
+      <div class="order-details">
+        <div class="od-grid">
+          <div><span class="k">customer</span><br><span class="v">Kabir Singh</span></div>
+          <div><span class="k">email</span><br><span class="v">kabir.s@mail.dev</span></div>
+          <div><span class="k">phone</span><br><span class="v">+91 98110 44322</span></div>
+          <div><span class="k">payment</span><br><span class="v">Cash on delivery</span></div>
+          <div style="grid-column:1/-1"><span class="k">shipping address</span><br><span class="v">7 Hauz Khas, New Delhi 110016</span></div>
+          <div style="grid-column:1/-1"><span class="k">items</span><br><span class="v">3 × Null Pointer Mug — 15oz / Black = &#8377;1,497</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="order-card">
+      <div class="order-head">
+        <div><span class="order-id">#ORD-1039</span><span class="order-date">2026-07-01</span></div>
+        <span class="order-total">&#8377;949</span>
+      </div>
+      <div class="order-body">
+        <div class="order-thumb"><img class="order-img" src="images/tshirt.webp" alt="404 Tee"></div>
+        <div class="order-outfit">
+          <h4>404 Tee</h4>
+          <p class="order-attrs">tshirts · size S · Black · qty 1 · &#8377;949 each</p>
+          <p class="order-cust">&#128100; Ananya Rao — Pune</p>
+        </div>
+      </div>
+      <div class="order-status">
+        <p class="opt-title">Order status</p>
+        <div class="status-picker"><input type="radio" name="ord-1039" id="o1039-pending" class="st-pending"><label for="o1039-pending" class="status-pill">pending</label><input type="radio" name="ord-1039" id="o1039-confirmed" class="st-confirmed"><label for="o1039-confirmed" class="status-pill">confirmed</label><input type="radio" name="ord-1039" id="o1039-shipped" class="st-shipped"><label for="o1039-shipped" class="status-pill">shipped</label><input type="radio" name="ord-1039" id="o1039-delivered" class="st-delivered" checked><label for="o1039-delivered" class="status-pill">delivered</label></div>
+      </div>
+      <input type="checkbox" id="od-1039" class="od-toggle">
+      <label for="od-1039" class="od-more">full outfit details</label>
+      <div class="order-details">
+        <div class="od-grid">
+          <div><span class="k">customer</span><br><span class="v">Ananya Rao</span></div>
+          <div><span class="k">email</span><br><span class="v">ananya.r@mail.dev</span></div>
+          <div><span class="k">phone</span><br><span class="v">+91 90280 77889</span></div>
+          <div><span class="k">payment</span><br><span class="v">UPI</span></div>
+          <div style="grid-column:1/-1"><span class="k">shipping address</span><br><span class="v">5 Koregaon Park, Pune 411001</span></div>
+          <div style="grid-column:1/-1"><span class="k">items</span><br><span class="v">1 × 404 Tee — S / Black = &#8377;949</span></div>
+        </div>
+      </div>
+    </div></div>
+
+    <div class="admin-card">
+      <h2 style="font-family:var(--mono);font-size:1rem;margin-bottom:1rem">Manage Products</h2>
+      <table class="admin-table">
+        <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+        <tbody>
+          <tr><td>Syntax Tee</td><td>tshirts</td><td>&#8377;999</td><td>50</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Hello World Tee</td><td>tshirts</td><td>&#8377;899</td><td>64</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>404 Tee</td><td>tshirts</td><td>&#8377;949</td><td>38</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Dark Mode Hoodie</td><td>hoodies</td><td>&#8377;2,499</td><td>27</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Kernel Hoodie</td><td>hoodies</td><td>&#8377;2,699</td><td>19</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Git Push Hoodie</td><td>hoodies</td><td>&#8377;2,599</td><td>22</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Null Pointer Mug</td><td>mugs</td><td>&#8377;499</td><td>140</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Stack Overflow Mug</td><td>mugs</td><td>&#8377;549</td><td>110</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+          <tr><td>Segfault Mug</td><td>mugs</td><td>&#8377;479</td><td>96</td><td><span class="link-del">edit</span> · <span class="link-del">delete</span></td></tr>
+        </tbody>
+      </table>
+      <label for="do-login" class="btn btn-ghost" style="margin-top:1.2rem">Log out</label>
+    </div>
+  </div>
+
+<footer class="site-footer">
+  <div>&lt;/&gt; DEVMERCH.SHOP — merch for people who ship code.</div>
+  <nav class="foot-links">
+    <a href="tshirts.html">tshirts</a>
+    <a href="hoodies.html">hoodies</a>
+    <a href="mugs.html">mugs</a>
+    <a href="cart.html">cart</a>
+    <a href="login.html">admin</a>
+  </nav>
+  <div class="foot-dim">// built with HTML &amp; CSS only · no javascript · © 2026</div>
+</footer>
+</body>
+</html>

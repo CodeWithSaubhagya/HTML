@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — DEVMERCH.SHOP</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>DEVMERCH<span class="brand-dim">.SHOP</span></a>
+  <nav class="nav-links">
+    <a href="tshirts.html">tshirts</a>
+    <a href="hoodies.html">hoodies</a>
+    <a href="mugs.html">mugs</a>
+  </nav>
+  <div class="nav-icons">
+    <a href="login.html" class="icon-btn" title="Account">&#128100;</a>
+    <a href="cart.html" class="icon-btn cart-btn" title="Cart">&#128722;<span class="cart-count">3</span></a>
+  </div>
+</header>
+<div class="wrap cat-head">
+  <p class="breadcrumb"><a href="index.html">root</a><span class="sep">/</span><a href="cart.html">cart</a><span class="sep">/</span>checkout</p>
+  <h1 class="cat-title"><span class="hash">#</span> Checkout</h1>
+  <p class="cat-desc">// billing &amp; shipping details</p>
+</div>
+<div class="wrap cart-layout">
+  <form class="checkout-card" action="order-success.html" method="get">
+    <h3>Billing Details</h3>
+    <div class="form-grid">
+      <label class="field full"><span class="field-label">full name</span><input type="text" name="name" required placeholder="Ada Lovelace"></label>
+      <label class="field"><span class="field-label">email</span><input type="email" name="email" required placeholder="you@mail.dev"></label>
+      <label class="field"><span class="field-label">phone</span><input type="tel" name="phone" required placeholder="+91 90000 00000"></label>
+      <label class="field full"><span class="field-label">address</span><input type="text" name="addr" required placeholder="Flat / street / area"></label>
+      <label class="field"><span class="field-label">city</span><input type="text" name="city" required placeholder="Mumbai"></label>
+      <label class="field"><span class="field-label">state</span><input type="text" name="state" required placeholder="Maharashtra"></label>
+      <label class="field"><span class="field-label">pin code</span><input type="text" name="pin" required pattern="[0-9]{6}" placeholder="400001"></label>
+      <div class="field full">
+        <span class="field-label">payment method</span>
+        <div class="pay-opts">
+          <input type="radio" name="pay" id="pay-upi" class="opt-radio" checked><label for="pay-upi" class="opt">UPI</label>
+          <input type="radio" name="pay" id="pay-card" class="opt-radio"><label for="pay-card" class="opt">Card</label>
+          <input type="radio" name="pay" id="pay-cod" class="opt-radio"><label for="pay-cod" class="opt">Cash on delivery</label>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:1.4rem">Place order &middot; &#8377;4,496</button>
+    <p style="font-family:var(--mono);font-size:.75rem;color:var(--dim);margin-top:.8rem">// you won't be charged — demo checkout</p>
+  </form>
+  <aside class="cart-summary">
+    <h3>Order Summary</h3>
+    <div class="sum-line"><span>Syntax Tee &times;1</span><span>&#8377;999</span></div>
+    <div class="sum-line"><span>Dark Mode Hoodie &times;1</span><span>&#8377;2,499</span></div>
+    <div class="sum-line"><span>Null Pointer Mug &times;2</span><span>&#8377;998</span></div>
+    <div class="sum-line"><span>Shipping</span><span>FREE</span></div>
+    <div class="sum-total"><span>Total</span><span>&#8377;4,496</span></div>
+  </aside>
+</div>
+
+<footer class="site-footer">
+  <div>&lt;/&gt; DEVMERCH.SHOP — merch for people who ship code.</div>
+  <nav class="foot-links">
+    <a href="tshirts.html">tshirts</a>
+    <a href="hoodies.html">hoodies</a>
+    <a href="mugs.html">mugs</a>
+    <a href="cart.html">cart</a>
+    <a href="login.html">admin</a>
+  </nav>
+  <div class="foot-dim">// built with HTML &amp; CSS only · no javascript · © 2026</div>
+</footer>
+</body>
+</html>
